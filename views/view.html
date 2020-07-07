@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Page</title>
+</head>
+<body>
+<form method="POST">
+    {{ range $k, $v := .}}
+        <input type="radio" name="meow" id="{{$k}}"/>
+        <label>{{$v}}</label><br>
+    {{end}}
+    <input type = "button" value = "添加" onclick = "location.href='/add'">
+    <input type = "button" value = "删除" onclick = "location.href='/view?event=' + getValue()">
+    <input type = "button" value = "修改" onclick = "location.href='/edit?event=' + getValue()"><br>
+</form>
+</body>
+
+<script language="JavaScript">
+    function getValue(){
+        var radio = document.getElementsByName("meow");
+        for (i=0; i<radio.length; i++) {
+            if (radio[i].checked) {
+                return radio[i].id
+            }
+        }
+        alert("Not selected")
+        window.location.reload()
+    }
+</script>
