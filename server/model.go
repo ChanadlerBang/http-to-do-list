@@ -1,3 +1,5 @@
+/* Since we began to use MySql, what's in this go file should be no longer necessary */
+
 package server
 
 import (
@@ -6,15 +8,15 @@ import (
 )
 
 type Option struct {
-	Title    string
+	Title string
 }
 
 type ToDoList struct {
 	events map[string]string
-	count int
+	count  int
 }
 
-func addEvent(toDo *ToDoList, event string)  {
+func addEvent(toDo *ToDoList, event string) {
 	toDo.events[time.Now().Format("2006-01-02 15:04:05")] = event
 	toDo.count++
 }
